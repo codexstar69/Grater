@@ -1,0 +1,132 @@
+ 1. Basics of Coupon Logic 
+
+-  Coupon Code Validation : Check if the entered coupon code matches any in the database.
+-  Expiry Date : Every coupon should have an expiry date. Ensure the coupon is not expired.
+-  Usage Count : Keep track of the number of times a coupon has been used and if it has reached its limit.
+- Show
+
+
+ 2. User-Specific Conditions 
+
+-  First-time User Discount : A coupon that's applicable only for new users.
+
+ 3. Product/Menu Item-Specific Conditions 
+
+-  Minimum Order Value : To apply the coupon, the order value should be more than a certain amount.
+-  Combo Deals : Discounts if certain combinations of items are ordered together.
+
+ 4. Time-Specific Conditions 
+
+-  Happy Hour Discounts : Apply discounts during certain hours.
+-  Day-specific : Coupons valid only on certain days, like "Taco Tuesdays".
+
+ 5. Location-Specific Conditions  (especially crucial for food trucks)
+
+-  Location-based Discounts : Certain discounts can be applied if the food truck is in a specific location or if the user is within a certain radius of the truck.
+
+ 6. Miscellaneous Conditions 
+
+-  Stacking Policy : Determine if users can apply multiple coupons on a single order.
+-  Refund & Cancellation : If an order with a coupon applied gets canceled, determine the policy on whether the coupon gets reinstated.
+-  Fallback : If a coupon fails to apply, give the user a proper error message, e.g., "This coupon is not applicable for selected items".
+
+ 7. External Factors 
+
+-  Partnerships : If you partner with local businesses or events, you might offer special coupons for their patrons.
+-  Festival or Season Special : Offer discounts during certain festivals or seasons.
+Buy 1 get 1
+Free Complimentary item 
+
+
+Permission Logic Discussion 
+Breakdown of permissions for each role in your multi-vendor food truck ordering application:
+
+ 1. Superadmin (Controls the entire platform - Product Owner) 
+
+-  Business Management :
+  - Add/remove businesses.
+  - View all businesses and their details.
+  - Modify business details if necessary.
+
+-  Food Truck Oversight :
+  - View all food trucks under all businesses.
+  - Add/remove food trucks (though typically this might be left to admins).
+  
+-  User Management :
+  - Add/remove any user (admins, managers).
+  - Modify permissions if necessary.
+  - View all user activities.
+
+-  POS Oversight :
+  - View transactions from all POS systems across all food trucks.
+  - Access aggregated financial reports from POS transactions.
+  - Modify platform-wide settings specific to the POS, such as transaction fees or integration settings.
+
+-  Platform Control :
+  - Modify platform-wide settings, like commission rates, UI/UX settings, etc.
+  - Access to analytics and reports across all businesses and food trucks.
+  - Implement and manage platform-wide promotions or campaigns.
+
+ 2. Admin (Business Owner) 
+
+-  Business Management :
+  - Update their business details (name, description, contact, etc.)
+
+-  Food Truck Management :
+  - Add/remove food trucks within their business.
+  - Update food truck details (name, location, type of cuisine, etc.)
+  
+-  Manager Management :
+  - Assign/remove managers to/from their food trucks.
+  - View activities of managers under their food trucks.
+
+-  Menu Management :
+  - Oversee and modify menus of all food trucks under their business (though specific edits might be typically done by managers).
+  
+-  Reports and Analytics :
+  - Access to business-specific analytics (sales, customer reviews, revenue, etc.)
+
+ 3. Manager (Assigned to individual food trucks) 
+
+-  Food Truck Management :
+  - Update their specific food truck details, like daily location.
+  
+-  Menu Management :
+  - Add/remove/update menu items for their specific food truck.
+  - Set prices and descriptions for items.
+  - Offer food truck-specific promotions or discounts.
+
+-  Order Management :
+  - View incoming orders.
+  - Manage order statuses (received, preparing, ready, etc.)
+
+-  POS Management for Business :
+  - View consolidated transactions from POS systems across their business's food trucks.
+  - Access financial summaries and reports of POS transactions within their business.
+
+-  Feedback and Reviews :
+  - View and respond to customer reviews/feedback for their specific food truck.
+
+-  POS Operation for Food Truck :
+  - Process sales transactions for walk-in customers.
+  - Handle refunds or void transactions if needed.
+  - Manage cash drawer (opening, closing, mid-day counts).
+
+-  Menu Management in POS :
+  - Update the POS with current menu items, prices, and promotions.
+  - Modify item categories, such as beverages, appetizers, mains, etc.
+  - Handle inventory or stock alerts, if the POS system has this feature.
+
+-  Customer Management in POS :
+  - Add or manage customer loyalty programs or accounts.
+  - Capture customer details for email receipts or loyalty programs.
+
+-  Reports from POS :
+  - Access daily sales summaries, cash drawer discrepancies, popular items, etc.
+  - Compare online sales to walk-in sales for performance assessment.
+  
+-  Hardware Management :
+  - If the POS system has integrated hardware (like barcode scanners, cash drawers, receipt printers), the manager should have permissions to manage, test, and troubleshoot these devices.
+
+-  Reports :
+  - Access to their specific food truck analytics (like daily sales, popular items, etc.)

@@ -1,0 +1,221 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Base mobile optimizations */
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+}
+
+/* Mobile touch optimizations */
+@media (max-width: 768px) {
+  /* Increase touch target sizes for better mobile usability */
+  button, 
+  a, 
+  [role="button"],
+  input[type="button"],
+  input[type="submit"] {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  /* Optimize font sizes for mobile */
+  h1 {
+    font-size: 2rem !important;
+    line-height: 1.2 !important;
+  }
+  
+  h2 {
+    font-size: 1.5rem !important;
+    line-height: 1.25 !important;
+  }
+  
+  /* Better spacing for mobile */
+  .mobile-py {
+    padding-top: 2.5rem !important;
+    padding-bottom: 2.5rem !important;
+  }
+  
+  /* Improve scrolling */
+  .smooth-scroll {
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+/* Image optimization for mobile */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Prevent content overflow */
+.content-wrapper {
+  overflow-x: hidden;
+  width: 100%;
+}
+
+/* Animation optimization for reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
+
+@layer base {
+  :root {
+    --grater-red: #E93C3C;
+    --grater-black: #1A1919;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply font-sans text-gray-800 antialiased;
+  }
+  
+  /* Fixed bottom navbar for mobile devices */
+  @media (max-width: 768px) {
+    footer {
+      padding-bottom: 5rem;
+    }
+  }
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center px-6 py-3 rounded-lg font-medium transition-all duration-200;
+  }
+  
+  .btn-primary {
+    @apply bg-grater-red text-white hover:bg-red-600;
+  }
+  
+  .btn-secondary {
+    @apply bg-white text-grater-black border border-gray-200 hover:bg-gray-50;
+  }
+  
+  .feature-card {
+    @apply p-6 rounded-xl bg-white border border-gray-100 shadow-sm hover:shadow-md transition-shadow duration-200;
+  }
+  
+  .section-title {
+    @apply text-3xl md:text-4xl font-bold font-space-grotesk mb-4 text-grater-black;
+  }
+  
+  .section-subtitle {
+    @apply text-gray-600 text-lg mb-12;
+  }
+}
+
+/* Responsive grid adjustments */
+@media (max-width: 640px) {
+  .container {
+    @apply px-4;
+  }
+  
+  .grid {
+    @apply gap-4;
+  }
+}
+
+/* Logo marquee animation */
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 30s linear infinite;
+  min-width: 200%;
+  display: flex;
+}
+
+/* Mobile optimization */
+@media (max-width: 768px) {
+  .mobile-overflow-hidden {
+    overflow-x: hidden;
+  }
+  
+  .mobile-padding {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  .mobile-stack {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .mobile-center {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+/* Scroll reveal fade in */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s, transform 0.6s;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Pulse animation for CTA buttons */
+@keyframes pulse-border {
+  0% {
+    box-shadow: 0 0 0 0 rgba(233, 60, 60, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(233, 60, 60, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(233, 60, 60, 0);
+  }
+}
+
+.pulse-animation {
+  animation: pulse-border 2s infinite;
+}
+
+/* Hover effect for cards */
+.hover-scale {
+  transition: transform 0.3s ease;
+}
+
+.hover-scale:hover {
+  transform: scale(1.03);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a1a1a1;
+}

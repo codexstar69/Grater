@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --grater-red: #EE3A24;
+  --grater-black: #232120;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  @apply bg-white text-grater-black;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Space Grotesk', sans-serif;
+}
